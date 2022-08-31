@@ -31,5 +31,6 @@ const computerSelection = getComputerChoice();
 
 console.log(`Player selection: ${playerSelection}`);
 console.log(`Computer selection: ${computerSelection}`);
-
 console.log(getComputerChoice(playerSelection, computerSelection));
+
+console.log(game(playerSelection, computerSelection));
