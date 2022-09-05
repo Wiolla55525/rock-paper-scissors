@@ -1,19 +1,41 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>RoCk PaPeR ScIssOrS</title>
-        <script type="module" src="script.js"></script>
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="icon" type="image/x-icon" href="./img/rock-paper-scissors.png">
-    </head>
-    <body>
-        <div class="wrapper">
-            <header><h1>RoCk PaPeR ScIssOrS</h1>
-            <img src="./img/rock-paper-scissors.png" height="100px" width="auto">
-        </header>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RoCk PaPeR ScIssOrS</title>
+    <script defer src="./script/script.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/x-icon" href="./img/rock-paper-scissors.png" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="neonText">RoCk PaPeR ScIssOrS</h1>
+        <!-- <img src="./img/rock-paper-scissors.png" height="100px" width="auto" style="margin-left: 40px;"/> -->
+      </header>
+      <div class="counter-block" style="font-size: 55px;">
+        <div class="count neonText" id="playerCurrentScore">0</div>
+        <span class="neonText">:</span>
+        <div class="count neonText" id="computerCurrentScore">0</div>
+      </div>
+      <div class="container-game">
+        <div class="player-left-side">
+          <button class="field-play" id="rock" data-value="rock"><img src="./img/rock.svg"></button>
+          <button class="field-play" id="paper" data-field="paper"><img src="./img/paper.svg"></button>
+          <button class="field-play" id="scissors" data-field="scissors"><img src="./img/scissors.svg"></button>
         </div>
-    </body>
+        <div class="computer-right-side">
+          <button class="field-play only-PC" id="rock"><img src="./img/rock.svg"></button>
+          <button class="field-play only-PC" id="paper"><img src="./img/paper.svg"></button>
+          <button class="field-play only-PC" id="scissors" ><img src="./img/scissors.svg"></button>
+        </div>
+      </div>
+      <h3 class="result neonText">Make Your Choice</h3>
+    </div>
+    <div class="play-again">
+      <button class="play btn btn-info">Restart</button>
+    </div>
+  </body>
 </html>
