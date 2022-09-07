@@ -1,39 +1,27 @@
 .neonText {
-    color: rgb(12, 8, 8);
-    text-shadow:
-      0 0 35px #fff,
-      0 0 10px #fff,
-      0 0 21px #fff,
-      0 0 95px #b71c1c,
-      0 0 82px #b71c1c,
-      0 0 92px #b71c1c,
-      0 0 102px #b71c1c,
-      0 0 151px #b71c1c;
-  }
-    
-  body {
-    font-size: 18px;
-    font-family: "Vibur", sans-serif;
-    background-image: url(../img/wood-g6080a22ca_1920.jpg);
-  }  
-  h1 {
-    font-size: 4.2rem;
-    animation: flicker 1.5s infinite alternate;     
-  }
-  
-  
+  color: rgb(12, 8, 8);
+  text-shadow: 0 0 35px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 95px #b71c1c,
+    0 0 82px #b71c1c, 0 0 92px #b71c1c, 0 0 102px #b71c1c, 0 0 151px #b71c1c;
+}
+
+body {
+  font-size: 18px;
+  font-family: "Vibur", sans-serif;
+  background-image: url(../img/wood-g6080a22ca_1920.jpg);
+}
+h1 {
+  font-size: 4.2rem;
+  animation: flicker 1.5s infinite alternate;
+}
+
 header {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.field-play:active {
-  background-color: aqua;
-}
-
-.player-left-side button:hover{
-    background-color: #d32f2fcf;
+.player-left-side button:hover {
+  background-color: #d32f2fcf;
 }
 .only-PC {
   cursor: not-allowed !important;
@@ -79,23 +67,21 @@ button {
 }
 
 .result {
-    display: flex;
-    justify-content: center;
-    font-size: 45px;
+  display: flex;
+  justify-content: center;
+  font-size: 45px;
 }
 .play-again button {
-    
-    width: 131px;
-    height: 73px;
-    font-size: 28px;
-    border-radius: 17px;
-    font-weight: 200;
+  width: 131px;
+  height: 73px;
+  font-size: 28px;
+  border-radius: 17px;
+  font-weight: 200;
 }
 .play-again button:hover {
-    background-color: #d32f2ff0;
+  background-color: #d32f2ff0;
 }
 .play-again {
-    display: flex;
-    justify-content: center;
-
+  display: flex;
+  justify-content: center;
 }
