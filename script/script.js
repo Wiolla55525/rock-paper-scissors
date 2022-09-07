@@ -60,44 +60,6 @@ function game(playerSelection, computerSelection) {
   }
 }
 
-// function game(pInput, cInput) {
-//   const currentMatch = `${pInput} vs ${cInput}`;
-//   if (pInput === cInput) {
-//     alert(`${currentMatch} is a Tie`);
-//     return;
-//   }
-
-//   if (pInput === "Rock") {
-//     if (cInput === "Scissors") {
-//       alert(`${currentMatch} = You Win`);
-//       pScore++;
-//     } else {
-//       alert(`${currentMatch} = Computer Wins`);
-//       cScore++;
-//     }
-//   }
-//   //Check for Paper
-//   else if (pInput === "Paper") {
-//     if (cInput === "Rock") {
-//       alert(`${currentMatch} = You Win`);
-//       pScore++;
-//     } else {
-//       alert(`${currentMatch} = Computer Wins`);
-//       cScore++;
-//     }
-//   }
-//   //Check for Scissors
-//   else {
-//     if (cInput === "Paper") {
-//       alert(`${currentMatch} = You Win`);
-//       pScore++;
-//     } else {
-//       alert(`${currentMatch} = Computer Wins`);
-//       cScore++;
-//     }
-//   }
-// }
-
 function currentScoreOfPlayers() {
   playerCurrentScore.textContent = playerResult;
   computerCurrentScore.textContent = computerResult;
@@ -106,14 +68,20 @@ function checkWinner() {
   if (playerResult === 5 || computerResult === 5) {
     const winner =
       playerResult === 5
-        ? "You win the game! Congratulations!"
-        : "Computer wins the game! Try again next time!";
+        ? "You win the game! Bravo!" : "Unlucky.. Computer wins the game!";
     alert(winner);
     return true;
   }
   return false;
 }
 
+const restartBtn = document.querySelector(".restart")
+function startNewGame() {
+    playerResult = 0;
+    computerResult = 0;
+    currentScoreOfPlayers();
+  }
+restartBtn.addEventListener("click", startNewGame);
 // const rock = document.getElementById("#rock");
 // const paper = document.getElementById("#paper");
 // const scissors = document.getElementById("#scissors");
@@ -121,33 +89,7 @@ function checkWinner() {
 // const playerSide = document.querySelector(".player-left-side");
 // const compSide = document.querySelector(".computer-right-side");
 
-// const restartBtn = document.querySelector(".restart")
 
-// const fivegames = () => {
-//     playerResult = 0;
-//     computerResult = 0;
-
-//     for (let i = 1; i <=5; i++) {
-//         console.log(`round ${i}`);
-//     }
-// }
-// fivegames();
-
-// function fiveRoundsWinner() {
-//   const resultContainer = document.getElementById("#resultContainer");
-//   switch (playerResult === 5 || computerResult === 5) {
-//     case playerResult > computerResult:
-//       resultContainer.innerHTML = "Player Won!";
-//       startNewGame();
-//       break;
-//     case playerResult < computerResult:
-//       resultContainer.innerHTML = "Unlucky.. Computer Won :(";
-//       startNewGame();
-//       break;
-//     default:
-//       console.log("No winner yet..");
-//   }
-// }
 
 // const playerSelection = "rock";
 // const computerSelection = getComputerChoice();
@@ -156,7 +98,6 @@ function checkWinner() {
 // console.log(`Computer selection: ${computerSelection}`);
 
 // const choiceUser = document.querySelectorAll(".player-left-side .field-play");
-
 // for (let i = 0; i < choiceUser.length; i++) {
 //     choiceUser[i].addEventListener("click", () => {
 //         console.log([i]);
@@ -164,13 +105,8 @@ function checkWinner() {
 //     })
 //     // getComputerChoice()
 // }
-
 // function backgroundChange([i]) {
 //     field[i].style.backgroundColor = '#d32f2ff0';
 // }
 
-// function startNewGame() {
-//     playerResult = 0;
-//     computerResult = 0;
-//     currentScoreOfPlayers();
-//   }
+
