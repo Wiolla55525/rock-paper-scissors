@@ -28,26 +28,27 @@ function game(playerSelection, computerSelection) {
     console.log("hi");
     return;
   }
-  if (playerSelection === "Rock" && computerSelection === "Paper") {
+  if (playerSelection == "rock" && computerSelection == "paper") {
     computerResult++;
     alert("You loose :( Paper beats Rock!");
     console.log("hi");
     return;
-  } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
+  } else if (playerSelection == "rock" && computerSelection == "scissors") {
     playerResult++;
     alert("You win! Rock beats Paper!");
+    console.log("hi");
     return;
-  } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
+  } else if (playerSelection == "paper" && computerSelection == "scissors") {
     computerResult++;
     alert("You loose :( Scissors beats Paper!");
     console.log("hi");
     return;
-  } else if (playerSelection === "Paper" && computerSelection === "Rock") {
+  } else if (playerSelection == "paper" && computerSelection == "rock") {
     playerResult++;
     alert("You win! Paper beats Rock!");
     console.log("hi");
     return;
-  } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
+  } else if (playerSelection == "scissors" && computerSelection == "rock") {
     computerResult++;
     alert("You loose :( Scissors beats Rock!");
     console.log("hi");
@@ -55,7 +56,7 @@ function game(playerSelection, computerSelection) {
   } else {
     playerResult++;
     alert("You win! Scissors beats Paper!");
-    console.log("hi");
+    console.log("hi2");
     return;
   }
 }
