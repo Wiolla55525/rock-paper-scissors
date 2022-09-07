@@ -1,49 +1,127 @@
-const playerCurrentScore = document.getElementById("#playerCurrentScore");
-const computerCurrentScore = document.getElementById("#computerCurrentScore");
-const rock = document.getElementById("#rock"); 
-const paper = document.getElementById("#paper");
-const scissors = document.getElementById("#scissors");
-const play = document.querySelector(".play");
-const playerSide = document.querySelector(".player-left-side");
-const compSide = document.querySelector(".computer-right-side");
-const field = document.querySelectorAll(".field-play")
-const restartBtn = document.querySelector(".restart")
+console.log("hi");
+const field = document.querySelectorAll(".only-player");
+const playerCurrentScore = document.getElementById("playerCurrentScore");
+const computerCurrentScore = document.getElementById("computerCurrentScore");
+let playerResult = 0; //pscore
+let computerResult = 0; //cscore
 
+field.forEach((option) => {
+  option.addEventListener("click", function () {
+    const playerInput = this.textContent;
+    const optionsPc = ["rock", "paper", "scissors"];
+    const computerInput =
+      optionsPc[Math.floor(Math.random() * optionsPc.length)];
 
-function getComputerChoice() {
-  const options = ["rock", "paper", "scissors"];
-  return options[Math.floor(Math.random() * options.length)];
-}
+    game(playerInput, computerInput);
+    currentScoreOfPlayers();
 
-let playerResult = 0;
-let computerResult = 0;
-let playerStep = 0;
+    if (checkWinner()) {
+      playerResult = computerResult = 0;
+      currentScoreOfPlayers();
+    }
+  });
+});
 
 function game(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
-    return "It's a draw..";
-  } else if (playerSelection == "rock" && computerSelection == "paper") {
+    alert("It's a draw..");
+    console.log("hi");
+    return;
+  }
+  if (playerSelection === "Rock" && computerSelection === "Paper") {
     computerResult++;
-    return "You loose :( Paper beats Rock!";
-  } else if (playerSelection == "rock" && computerSelection == "scissors") {
+    alert("You loose :( Paper beats Rock!");
+    console.log("hi");
+    return;
+  } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
     playerResult++;
-    return "You win! Rock beats Paper!";
-  } else if (playerSelection == "paper" && computerSelection == "scissors") {
+    alert("You win! Rock beats Paper!");
+    return;
+  } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
     computerResult++;
-    return "You loose :( Scissors beats Paper!";
-  } else if (playerSelection == "paper" && computerSelection == "rock") {
+    alert("You loose :( Scissors beats Paper!");
+    console.log("hi");
+    return;
+  } else if (playerSelection === "Paper" && computerSelection === "Rock") {
     playerResult++;
-    return "You win! Paper beats Rock!";
-  } else if (playerSelection == "scissors" && computerSelection == "rock") {
+    alert("You win! Paper beats Rock!");
+    console.log("hi");
+    return;
+  } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
     computerResult++;
-    return "You loose :( Scissors beats Rock!";
+    alert("You loose :( Scissors beats Rock!");
+    console.log("hi");
+    return;
   } else {
     playerResult++;
-    return "You win! Scissors beats Paper!";
+    alert("You win! Scissors beats Paper!");
+    console.log("hi");
+    return;
   }
 }
-game();
 
+// function game(pInput, cInput) {
+//   const currentMatch = `${pInput} vs ${cInput}`;
+//   if (pInput === cInput) {
+//     alert(`${currentMatch} is a Tie`);
+//     return;
+//   }
+
+//   if (pInput === "Rock") {
+//     if (cInput === "Scissors") {
+//       alert(`${currentMatch} = You Win`);
+//       pScore++;
+//     } else {
+//       alert(`${currentMatch} = Computer Wins`);
+//       cScore++;
+//     }
+//   }
+//   //Check for Paper
+//   else if (pInput === "Paper") {
+//     if (cInput === "Rock") {
+//       alert(`${currentMatch} = You Win`);
+//       pScore++;
+//     } else {
+//       alert(`${currentMatch} = Computer Wins`);
+//       cScore++;
+//     }
+//   }
+//   //Check for Scissors
+//   else {
+//     if (cInput === "Paper") {
+//       alert(`${currentMatch} = You Win`);
+//       pScore++;
+//     } else {
+//       alert(`${currentMatch} = Computer Wins`);
+//       cScore++;
+//     }
+//   }
+// }
+
+function currentScoreOfPlayers() {
+  playerCurrentScore.textContent = playerResult;
+  computerCurrentScore.textContent = computerResult;
+}
+function checkWinner() {
+  if (playerResult === 5 || computerResult === 5) {
+    const winner =
+      playerResult === 5
+        ? "You win the game! Congratulations!"
+        : "Computer wins the game! Try again next time!";
+    alert(winner);
+    return true;
+  }
+  return false;
+}
+
+// const rock = document.getElementById("#rock");
+// const paper = document.getElementById("#paper");
+// const scissors = document.getElementById("#scissors");
+// const play = document.querySelector(".play");
+// const playerSide = document.querySelector(".player-left-side");
+// const compSide = document.querySelector(".computer-right-side");
+
+// const restartBtn = document.querySelector(".restart")
 
 // const fivegames = () => {
 //     playerResult = 0;
@@ -55,22 +133,21 @@ game();
 // }
 // fivegames();
 
-function fiveRoundsWinner() {
-  const resultContainer = document.getElementById("#resultContainer");
-  switch (playerResult === 5 || computerResult === 5) {
-    case playerResult > computerResult:
-      resultContainer.innerHTML = "Player Won!";
-      startNewGame();
-      break;
-    case playerResult < computerResult:
-      resultContainer.innerHTML = "Unlucky.. Computer Won :(";
-      startNewGame();
-      break;
-    default:
-      console.log("No winner yet..");
-  }
-}
-
+// function fiveRoundsWinner() {
+//   const resultContainer = document.getElementById("#resultContainer");
+//   switch (playerResult === 5 || computerResult === 5) {
+//     case playerResult > computerResult:
+//       resultContainer.innerHTML = "Player Won!";
+//       startNewGame();
+//       break;
+//     case playerResult < computerResult:
+//       resultContainer.innerHTML = "Unlucky.. Computer Won :(";
+//       startNewGame();
+//       break;
+//     default:
+//       console.log("No winner yet..");
+//   }
+// }
 
 // const playerSelection = "rock";
 // const computerSelection = getComputerChoice();
@@ -78,32 +155,22 @@ function fiveRoundsWinner() {
 // console.log(`Player selection: ${playerSelection}`);
 // console.log(`Computer selection: ${computerSelection}`);
 
-// console.log(game(playerSelection, computerSelection));
+// const choiceUser = document.querySelectorAll(".player-left-side .field-play");
 
+// for (let i = 0; i < choiceUser.length; i++) {
+//     choiceUser[i].addEventListener("click", () => {
+//         console.log([i]);
+//         backgroundChange([i]);
+//     })
+//     // getComputerChoice()
+// }
 
-const choiceUser = document.querySelectorAll(".player-left-side .field-play");
-console.log(choiceUser);
+// function backgroundChange([i]) {
+//     field[i].style.backgroundColor = '#d32f2ff0';
+// }
 
-for (let i = 0; i < choiceUser.length; i++) {
-    choiceUser[i].addEventListener("click", () => {
-        console.log([i]);       
-        backgroundChange([i]);            
-    })
-    getComputerChoice()
-}
-
-function backgroundChange([i]) {
-    field[i].style.backgroundColor = '#d32f2ff0';
-}
-
-function currentScoreOfPlayers() {
-    playerCurrentScore.innerHTML = playerResult;
-    computerCurrentScore.innerHTML = computerResult;
-}
-
-function startNewGame() {
-    playerResult = 0;
-    computerResult = 0;
-    currentScoreOfPlayers();
-  }
-  
+// function startNewGame() {
+//     playerResult = 0;
+//     computerResult = 0;
+//     currentScoreOfPlayers();
+//   }
