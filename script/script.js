@@ -23,39 +23,40 @@ field.forEach((option) => {
 });
 
 function game(playerSelection, computerSelection) {
+  const match = `${playerSelection} vs ${computerSelection}`;
   if (playerSelection === computerSelection) {
-    alert("It's a draw..");
+    alert(`${match}It's a draw..`);
     console.log("hi");
     return;
   }
   if (playerSelection == "rock" && computerSelection == "paper") {
     computerResult++;
-    alert("You loose :( Paper beats Rock!");
+    alert(`${match}You loose :( Paper beats Rock!`);
     console.log("hi");
     return;
   } else if (playerSelection == "rock" && computerSelection == "scissors") {
     playerResult++;
-    alert("You win! Rock beats Paper!");
+    alert(`${match} You win! Rock beats Paper!`);
     console.log("hi");
     return;
   } else if (playerSelection == "paper" && computerSelection == "scissors") {
     computerResult++;
-    alert("You loose :( Scissors beats Paper!");
+    alert(`${match} You loose :( Scissors beats Paper!`);
     console.log("hi");
     return;
   } else if (playerSelection == "paper" && computerSelection == "rock") {
     playerResult++;
-    alert("You win! Paper beats Rock!");
+    alert(`${match} You win! Paper beats Rock!`);
     console.log("hi");
     return;
   } else if (playerSelection == "scissors" && computerSelection == "rock") {
     computerResult++;
-    alert("You loose :( Scissors beats Rock!");
+    alert(`${match} You loose :( Scissors beats Rock!`);
     console.log("hi");
     return;
   } else {
     playerResult++;
-    alert("You win! Scissors beats Paper!");
+    alert(`${match} You win! Scissors beats Paper!`);
     console.log("hi2");
     return;
   }
