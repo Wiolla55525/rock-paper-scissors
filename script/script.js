@@ -4,15 +4,21 @@ const playerCurrentScore = document.getElementById("playerCurrentScore");
 const computerCurrentScore = document.getElementById("computerCurrentScore");
 let playerResult = 0;
 let computerResult = 0;
+const rock = document.getElementById("rock");
+const paper = document.getElementById("paper");
+const scissors = document.getElementById("scissors");
+let playerInput = '';
+
 
 field.forEach((option) => {
   option.addEventListener("click", function () {
-    const playerInput = this.textContent;
+    const playerInput = this.value;
+
     const optionsPc = ["rock", "paper", "scissors"];
-    const computerInput =
+    const pcInput =
       optionsPc[Math.floor(Math.random() * optionsPc.length)];
 
-    game(playerInput, computerInput);
+    game(playerInput, pcInput);
     currentScoreOfPlayers();
 
     if (checkWinner()) {
@@ -22,43 +28,41 @@ field.forEach((option) => {
   });
 });
 
-function game(playerSelection, computerSelection) {
-  const match = `${playerSelection} vs ${computerSelection}`;
-  if (playerSelection === computerSelection) {
-    alert(`${match}It's a draw..`);
-    console.log("hi");
+
+function game(playerInput, pcInput) {
+  const currentMatch = `${playerInput} vs ${pcInput}`;
+
+  if (playerInput === pcInput) {
+   
+    alert(`${currentMatch} is a Draw`);
     return;
   }
-  if (playerSelection == "rock" && computerSelection == "paper") {
-    computerResult++;
-    alert(`${match}You loose :( Paper beats Rock!`);
-    console.log("hi");
-    return;
-  } else if (playerSelection == "rock" && computerSelection == "scissors") {
-    playerResult++;
-    alert(`${match} You win! Rock beats Paper!`);
-    console.log("hi");
-    return;
-  } else if (playerSelection == "paper" && computerSelection == "scissors") {
-    computerResult++;
-    alert(`${match} You loose :( Scissors beats Paper!`);
-    console.log("hi");
-    return;
-  } else if (playerSelection == "paper" && computerSelection == "rock") {
-    playerResult++;
-    alert(`${match} You win! Paper beats Rock!`);
-    console.log("hi");
-    return;
-  } else if (playerSelection == "scissors" && computerSelection == "rock") {
-    computerResult++;
-    alert(`${match} You loose :( Scissors beats Rock!`);
-    console.log("hi");
-    return;
-  } else {
-    playerResult++;
-    alert(`${match} You win! Scissors beats Paper!`);
-    console.log("hi2");
-    return;
+  if (playerInput === "rock") {
+    if (pcInput === "scissors") {
+      alert(`${currentMatch} = You win! Rock beats Scissors!`);
+      playerResult++;
+    } else {
+      alert(`${currentMatch} = You loose :( Paper beats Rock!`);
+      computerResult++;
+    }
+  }
+  else if (playerInput === "paper") {
+    if (pcInput === "rock") {
+      alert(`${currentMatch} = You win! Paper beats Rock!`);
+      playerResult++
+    } else {
+      alert(`${currentMatch} = You loose :( Scissors beats Paper!`);
+      computerResult++;
+    }
+  }
+  else {
+    if (pcInput === "Paper") {
+      alert(`${currentMatch} = You win! Scissors beats Paper!`);
+      playerResult++
+    } else {
+      alert(`${currentMatch} = You loose :( Rock beats Scissors!`);
+      computerResult++;
+    }
   }
 }
 
