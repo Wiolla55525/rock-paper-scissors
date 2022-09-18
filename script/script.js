@@ -17,16 +17,6 @@ field.forEach((option) => {
     const optionsPc = ["rock", "paper", "scissors"];
     const pcInput = optionsPc[Math.floor(Math.random() * optionsPc.length)];
 
-    // function getPcColor(pcInput) {
-    //   if (pcInput === optionsPc[0]) {
-    //     computerColor[0].style.backgroundColor = "#d32f2fcf"
-    //   } else if (pcInput === optionsPc[1]) {
-    //     computerColor[1].style.backgroundColor = "#d32f2fcf"
-    //   } else if (pcInput === optionsPc[2]) {
-    //     computerColor[2].style.backgroundColor =  "#d32f2fcf"
-    //   }
-    // }
-
     game(playerInput, pcInput);
     currentScoreOfPlayers();
 
@@ -84,11 +74,11 @@ function game(playerInput, pcInput) {
 }
 
 function resetartComputerColor() {
-  for (let i = 0; i <= computerColor.length; i++) {
-    setTimeout(() => {
-      return (computerColor[i].style.backgroundColor = "white");
-    }, 2000);
-  }
+  setTimeout(() => {
+    for (const color of computerColor) {
+      color.style.backgroundColor = "white";
+    }
+  }, 2000);
 }
 
 function currentScoreOfPlayers() {
