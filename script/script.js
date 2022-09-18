@@ -8,6 +8,7 @@ const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissors = document.getElementById("scissors");
 let playerInput = '';
+const computerColor = document.querySelectorAll('.only-PC')
 
 
 field.forEach((option) => {
@@ -18,6 +19,17 @@ field.forEach((option) => {
     const pcInput =
       optionsPc[Math.floor(Math.random() * optionsPc.length)];
 
+
+      // function getPcColor(pcInput) {
+      //   if (pcInput === optionsPc[0]) {
+      //     computerColor[0].style.backgroundColor = "red"
+      //   } else if (pcInput === optionsPc[1]) {
+      //     computerColor[1].style.backgroundColor = "red"
+      //   } else if (pcInput === optionsPc[2]) {
+      //     computerColor[2].style.backgroundColor =  "red"
+      //   }
+      // }
+
     game(playerInput, pcInput);
     currentScoreOfPlayers();
 
@@ -27,6 +39,7 @@ field.forEach((option) => {
     }
   });
 });
+
 
 
 function game(playerInput, pcInput) {
@@ -41,29 +54,48 @@ function game(playerInput, pcInput) {
     if (pcInput === "scissors") {
       alert(`${currentMatch} = You win! Rock beats Scissors!`);
       playerResult++;
+      computerColor[2].style.backgroundColor = "red";
+      resetartComputerColor();
     } else {
       alert(`${currentMatch} = You loose :( Paper beats Rock!`);
       computerResult++;
+      computerColor[1].style.backgroundColor = "red";
+      resetartComputerColor();
     }
   }
   else if (playerInput === "paper") {
     if (pcInput === "rock") {
       alert(`${currentMatch} = You win! Paper beats Rock!`);
       playerResult++
+      computerColor[0].style.backgroundColor = "red";
+      resetartComputerColor();
     } else {
       alert(`${currentMatch} = You loose :( Scissors beats Paper!`);
       computerResult++;
+      computerColor[2].style.backgroundColor = "red";
+      resetartComputerColor();
     }
   }
   else {
     if (pcInput === "Paper") {
       alert(`${currentMatch} = You win! Scissors beats Paper!`);
       playerResult++
+      computerColor[1].style.backgroundColor = "red";
+      resetartComputerColor();
     } else {
       alert(`${currentMatch} = You loose :( Rock beats Scissors!`);
       computerResult++;
+      computerColor[0].style.backgroundColor = "red";
+      resetartComputerColor();
     }
   }
+}
+
+function resetartComputerColor() {
+  setTimeout(() => {
+    return computerColor[0].style.backgroundColor ="white";
+  }, 2000);
+  
 }
 
 function currentScoreOfPlayers() {
