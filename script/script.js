@@ -7,28 +7,25 @@ let computerResult = 0;
 const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissors = document.getElementById("scissors");
-let playerInput = '';
-const computerColor = document.querySelectorAll('.only-PC')
-
+let playerInput = "";
+const computerColor = document.querySelectorAll(".only-PC");
 
 field.forEach((option) => {
   option.addEventListener("click", function () {
     const playerInput = this.value;
 
     const optionsPc = ["rock", "paper", "scissors"];
-    const pcInput =
-      optionsPc[Math.floor(Math.random() * optionsPc.length)];
+    const pcInput = optionsPc[Math.floor(Math.random() * optionsPc.length)];
 
-
-      // function getPcColor(pcInput) {
-      //   if (pcInput === optionsPc[0]) {
-      //     computerColor[0].style.backgroundColor = "red"
-      //   } else if (pcInput === optionsPc[1]) {
-      //     computerColor[1].style.backgroundColor = "red"
-      //   } else if (pcInput === optionsPc[2]) {
-      //     computerColor[2].style.backgroundColor =  "red"
-      //   }
-      // }
+    // function getPcColor(pcInput) {
+    //   if (pcInput === optionsPc[0]) {
+    //     computerColor[0].style.backgroundColor = "#d32f2fcf"
+    //   } else if (pcInput === optionsPc[1]) {
+    //     computerColor[1].style.backgroundColor = "#d32f2fcf"
+    //   } else if (pcInput === optionsPc[2]) {
+    //     computerColor[2].style.backgroundColor =  "#d32f2fcf"
+    //   }
+    // }
 
     game(playerInput, pcInput);
     currentScoreOfPlayers();
@@ -40,63 +37,58 @@ field.forEach((option) => {
   });
 });
 
-
-
 function game(playerInput, pcInput) {
   const currentMatch = `${playerInput} vs ${pcInput}`;
 
   if (playerInput === pcInput) {
-   
     alert(`${currentMatch} is a Draw`);
     return;
   }
   if (playerInput === "rock") {
     if (pcInput === "scissors") {
       alert(`${currentMatch} = You win! Rock beats Scissors!`);
-      playerResult++;
-      computerColor[2].style.backgroundColor = "red";
+      computerColor[2].style.backgroundColor = "#d32f2fcf";
       resetartComputerColor();
+      playerResult++;
     } else {
       alert(`${currentMatch} = You loose :( Paper beats Rock!`);
-      computerResult++;
-      computerColor[1].style.backgroundColor = "red";
+      computerColor[1].style.backgroundColor = "#d32f2fcf";
       resetartComputerColor();
+      computerResult++;
     }
-  }
-  else if (playerInput === "paper") {
+  } else if (playerInput === "paper") {
     if (pcInput === "rock") {
       alert(`${currentMatch} = You win! Paper beats Rock!`);
-      playerResult++
-      computerColor[0].style.backgroundColor = "red";
+      computerColor[0].style.backgroundColor = "#d32f2fcf";
       resetartComputerColor();
+      playerResult++;
     } else {
       alert(`${currentMatch} = You loose :( Scissors beats Paper!`);
-      computerResult++;
-      computerColor[2].style.backgroundColor = "red";
+      computerColor[2].style.backgroundColor = "#d32f2fcf";
       resetartComputerColor();
+      computerResult++;
     }
-  }
-  else {
+  } else {
     if (pcInput === "Paper") {
       alert(`${currentMatch} = You win! Scissors beats Paper!`);
-      playerResult++
-      computerColor[1].style.backgroundColor = "red";
+      computerColor[1].style.backgroundColor = "#d32f2fcf";
       resetartComputerColor();
+      playerResult++;
     } else {
       alert(`${currentMatch} = You loose :( Rock beats Scissors!`);
-      computerResult++;
-      computerColor[0].style.backgroundColor = "red";
+      computerColor[0].style.backgroundColor = "#d32f2fcf";
       resetartComputerColor();
+      computerResult++;
     }
   }
 }
 
 function resetartComputerColor() {
   for (let i = 0; i <= computerColor.length; i++) {
-  setTimeout(() => {
-    return computerColor[i].style.backgroundColor ="white";
-  }, 2000);
-}
+    setTimeout(() => {
+      return (computerColor[i].style.backgroundColor = "white");
+    }, 2000);
+  }
 }
 
 function currentScoreOfPlayers() {
