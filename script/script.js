@@ -92,10 +92,11 @@ function game(playerInput, pcInput) {
 }
 
 function resetartComputerColor() {
+  for (let i = 0; i <= computerColor.length; i++) {
   setTimeout(() => {
-    return computerColor[0].style.backgroundColor ="white";
+    return computerColor[i].style.backgroundColor ="white";
   }, 2000);
-  
+}
 }
 
 function currentScoreOfPlayers() {
