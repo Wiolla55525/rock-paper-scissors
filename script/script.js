@@ -1,4 +1,3 @@
-console.log("hi");
 const field = document.querySelectorAll(".only-player");
 const playerCurrentScore = document.getElementById("playerCurrentScore");
 const computerCurrentScore = document.getElementById("computerCurrentScore");
@@ -36,37 +35,37 @@ function game(playerInput, pcInput) {
   }
   if (playerInput === "rock") {
     if (pcInput === "scissors") {
-      alert(`${currentMatch} = You win! Rock beats Scissors!`);
       computerColor[2].style.backgroundColor = "#d32f2fcf";
+      alert(`${currentMatch} = You win! Rock beats Scissors!`);
       resetartComputerColor();
       playerResult++;
     } else {
-      alert(`${currentMatch} = You loose :( Paper beats Rock!`);
       computerColor[1].style.backgroundColor = "#d32f2fcf";
       resetartComputerColor();
+      alert(`${currentMatch} = You loose :( Paper beats Rock!`);
       computerResult++;
     }
   } else if (playerInput === "paper") {
     if (pcInput === "rock") {
-      alert(`${currentMatch} = You win! Paper beats Rock!`);
       computerColor[0].style.backgroundColor = "#d32f2fcf";
+      alert(`${currentMatch} = You win! Paper beats Rock!`);
       resetartComputerColor();
       playerResult++;
     } else {
-      alert(`${currentMatch} = You loose :( Scissors beats Paper!`);
       computerColor[2].style.backgroundColor = "#d32f2fcf";
+      alert(`${currentMatch} = You loose :( Scissors beats Paper!`);
       resetartComputerColor();
       computerResult++;
     }
   } else {
     if (pcInput === "Paper") {
-      alert(`${currentMatch} = You win! Scissors beats Paper!`);
       computerColor[1].style.backgroundColor = "#d32f2fcf";
+      alert(`${currentMatch} = You win! Scissors beats Paper!`);
       resetartComputerColor();
       playerResult++;
     } else {
-      alert(`${currentMatch} = You loose :( Rock beats Scissors!`);
       computerColor[0].style.backgroundColor = "#d32f2fcf";
+      alert(`${currentMatch} = You loose :( Rock beats Scissors!`);
       resetartComputerColor();
       computerResult++;
     }
@@ -104,9 +103,3 @@ function startNewGame() {
   currentScoreOfPlayers();
 }
 restartBtn.addEventListener("click", startNewGame);
-
-// const playerSelection = "rock";
-// const computerSelection = getComputerChoice();
-
-// console.log(`Player selection: ${playerSelection}`);
-// console.log(`Computer selection: ${computerSelection}`);
